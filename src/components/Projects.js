@@ -4,14 +4,19 @@ import Astrological from "../components/assets/astrological.jpg";
 const projects = () => {
 	return (
 		<>
-			<div className="bg-blue-500/40 h-10"></div>
-			<div class="grid grid-cols-3 gap-4">
-				<div class="w-full bg-red-400 h-24">
-					<img
-						src={Astrological}
-						alt=""
-						className="object-fit"
-					/>
+			<div className="bg-beige">
+				<div className="bg-ash h-10 scale-95"></div>
+				<div class="grid grid-cols-1 justify-items-center bg-beige">
+					<div class="">
+						<h1 className="text-7xl font-bebas border-2 text-center">
+							Projekt
+						</h1>
+						<img
+							src={Astrological}
+							alt=""
+							className="object-contain w-96 h-auto"
+						/>
+					</div>
 				</div>
 			</div>
 		</>

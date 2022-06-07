@@ -1,41 +1,68 @@
 import React from "react";
 import ProfilePic from "../components/assets/HomePic.jpg";
+import arrow from "../components/assets/arrow.png";
+import react from "../components/assets/react.png";
 import { FaGithub, FaInstagram, FaTwitter, FaTwitch } from "react-icons/fa";
 
 const Home = () => {
 	return (
 		<>
-			<div className="bg-slate-200">
-				<div className="md:flex md:flex-row md:justify-center md:space-x-24 md:pt-24 grid grid-cols-1 justify-items-center  w-74  h-full">
-					<img
-						src={ProfilePic}
-						alt="Pontus Abrahamsson"
-						className="h-96 rounded-xl object-contain"
-					/>
-					<p className="text-justify md:w-96 font-nunito">
-						Hej, mitt namn är Pontus Abrahamsson och jag är en
-						webbutvecklare med cirka ett års kunskap som jag
-						hämtat in på egen hand via nätet. Jag sysslar
-						främst med frontend och har då React som fokus.
-						Jobbar hela vägen från grunden med webbsidor och
-						använder just nu verktyg som React, TailwindCSS,
-						Framer Motion och Inkscape. Som person gillar jag
-						att testa nya saker, teknologier och självklart
-						programmera. På fritiden spelar jag Magic: The
-						Gathering, pratar med vänner {"(och programmerar...)"} Lorem ipsum dolor sit, amet consectetur
-						adipisicing elit. Eligendi qui amet dicta nesciunt
-						voluptas, explicabo, aliquam similique dolore
-						distinctio dolores quam? Eligendi doloremque sunt
-						voluptas iste veniam modi aut, itaque omnis magnam
-						et, dicta dignissimos?
-					</p>
+			<div className="bg-beige">
+				<div className="md:pt-24"></div>
+				<div className="flex flex-row justify-center">
+					<div className="lg:flex flex-row justify-center">
+						<div className="h-96 lg:h-auto lg:w-96 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+							<img
+								src={ProfilePic}
+								alt="Pontus Abrahamsson"
+							/>
+						</div>
+						<div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t-0 lg:border-8 lg:border-gray-900 bg-moss rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+							<div className="md:mb-8">
+								<div className="font-bold md:text-7xl text-3xl mb-2 font-bebas text-center">
+									<h1>Bakgrundsfakta</h1>
+								</div>
+								<p className="text-black text-base md:w-96 w-86 text-justify">
+									Hej, mitt namn är Pontus
+									Abrahamsson och jag har under det
+									senaste året, på egen hand, lärt
+									mig grunderna i webbutveckling,
+									främst frontend men har även
+									erfarenhet av hur man hostar en
+									hemsida på heroku och väldigt
+									grundläggande kunskaper om mongoDB.
+									Till hösten börjar jag läsa på
+									IT-högskolan, något jag ser fram
+									emot väldigt mycket. Jag brinner
+									för programmering och är väldigt
+									entusiastisk av mig. Jag själv
+									gillar grupparbeten men jobbar även
+									väldigt bra ensam. Lorem ipsum
+									dolor sit amet consectetur
+									adipisicing elit. Velit ad,
+									exercitationem veritatis sint
+									facere est nisi placeat pariatur
+									odio itaque, praesentium modi ut.
+									Dicta aliquam dolorum hic numquam
+									non vero, expedita ipsam nisi
+									tempora doloremque similique?
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div className="h-48"></div>
-				<div className="bg-blue-500/40 backdrop-blur-lg flex flex-row justify-center space-x-10 h-14 items-center">
+
+				<div className="md:h-48"></div>
+				<div className="bg-ash backdrop-blur-lg flex flex-row justify-center space-x-10 h-14 items-center w-full scale-95 -rotate-1">
 					<FaGithub className="w-10 h-10" />
 					<FaInstagram className="w-10 h-10" />
 					<FaTwitter className="w-10 h-10" />
 					<FaTwitch className="w-10 h-10" />
+					<img
+						src={arrow}
+						alt="arrow"
+						className="w-36 h-36 pb-12 hidden md:block"
+					/>
 				</div>
 			</div>
 		</>

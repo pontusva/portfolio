@@ -7,7 +7,7 @@ import react from "../components/assets/react.png";
 const Skills = () => {
 	return (
 		<>
-			<div className="w-full ">
+			<div className="w-full bg-beige">
 				<div className="flex flex-row justify-center">
 					<img
 						src={react}
