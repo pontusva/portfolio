@@ -5,10 +5,10 @@ const projects = () => {
 	return (
 		<>
 			<div className="bg-beige">
-				<div className="bg-ash h-10 scale-95"></div>
+				<div className="bg-ash h-10 md:scale-95"></div>
 				<div class="grid grid-cols-1 justify-items-center bg-beige">
 					<div class="">
-						<h1 className="text-7xl font-bebas border-2 text-center">
+						<h1 className="text-7xl font-bebas text-center">
 							Projekt
 						</h1>
 						<img
