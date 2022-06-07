@@ -1,2 +1,2 @@
 # Site in Progess...
-Not a finished portfolio site yet. 
+Not a finished yet.
