@@ -14,7 +14,7 @@ const MobileNav = ({ showMenu, active }) => {
             >
                 <XIcon onClick={showMenu} className='w-5' />
                 <button>
-                    <Link to='home' smooth={true} duration={500}>
+                    <Link to='home' smooth={true} duration={400}>
                         Hem
                     </Link>
                 </button>
