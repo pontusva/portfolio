@@ -1,5 +1,5 @@
 import React from "react";
-import Astrological from "../components/assets/astrological.jpg";
+import Astrological from "../components/assets/calling.jpg";
 
 const projects = () => {
 	return (

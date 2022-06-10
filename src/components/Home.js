@@ -5,11 +5,11 @@ import mobielArrow from "../components/assets/mobilearrow.png";
 import { FaGithub, FaInstagram, FaTwitter, FaTwitch } from "react-icons/fa";
 import ScrollAnimation from "./scroll/ScrollAnimation";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Home = () => {
-    // Chaning the text to English (*)
-    const swedish = `Hej, mitt namn är Pontus Abrahamsson 
+	// Chaning the text to English (*)
+	const swedish = `Hej, mitt namn är Pontus Abrahamsson 
     och jag har under det senaste året, på egen hand,
     lärt mig grunderna i webbutveckling, främst
     frontend men har även erfarenhet av hur man
@@ -22,7 +22,7 @@ const Home = () => {
     grupparbeten men jobbar även väldigt bra
     ensam.`;
 
-    const englishAbout = `Hi, my name is Pontus Abrahamsson. 
+	const englishAbout = `Hi, my name is Pontus Abrahamsson. 
     During this past year I have been studying 
     web development on my own and have gained knowledge about the core
      principles in web development. 
@@ -32,79 +32,122 @@ const Home = () => {
      My passion is programming and i am everything enthusiast.
      I like to work in groups but am also very good working on my own.`;
 
-    const englishButton = "Switch to English";
-    const swedishButton = "Switch to Swedish";
+	const englishButton = "Switch to English";
+	const swedishButton = "Switch to Swedish";
 
-    const [english, setEnglish] = useState(true);
-    const [buttonLang, setButtonLang] = useState(true);
+	const [english, setEnglish] = useState(true);
+	const [buttonLang, setButtonLang] = useState(true);
 
-    return (
-        <>
-            <div name='home' className='bg-beige '>
-                <div className='md:pt-44 pt-36'></div>
-                <div className='flex flex-row justify-center'>
-                    <div className='lg:flex flex-row justify-center'>
-                        <div className='h-96 md:h-auto md:w-96 flex-none bg-cover rounded-t md:rounded-t-none md:rounded-l text-center overflow-hidden hidden lg:block'>
-                            <img src={ProfilePic} alt='Pontus Abrahamsson' />
-                        </div>
-                        <img
-                            src={mobielArrow}
-                            alt='an arrow'
-                            className='md:hidden w-16 h-16 object-contain'
-                        />
-                        <h1 className='text-6xl font-bebas text-center md:hidden'>
-                            Bakgrundsfakta
-                        </h1>
-                        <div className='border-r border-b border-l border-gray-400 md:border-l-0 md:border-t-0 md:border-8 md:border-gray-900 bg-moss rounded-b md:rounded-b-none md:rounded-r p-4 flex flex-col w-full justify-between justify-center leading-normal'>
-                            <div className='md:mb-8 flex flex-col justify-center'>
-                                <div className='hidden md:block font-bold md:text-7xl text-3xl mb-2 font-bebas text-center'>
-                                    <h1>Bakgrundsfakta</h1>
-                                </div>
-                                <motion.p
-                                    className='text-black text-base lg:w-96 w-80 text-justify m-auto'
-                                >
-                                    {english ? swedish : englishAbout}
-                                </motion.p>
-                            </div>
-                            <div className='flex justify-center'>
-                                <button
-                                    className='border-2 rounded-full font-bold text-xl w-56 text-center justify-self-center'
-                                    onClick={() => {
-                                        setEnglish(!english);
-                                        setButtonLang(!buttonLang);
-                                    }}
-                                >
-                                    {buttonLang ? englishButton : swedishButton}
-                                </button>
-                            </div>
-                        </div>
+   
+	return (
+		<>
+			<div name="home" className="bg-beige ">
+				<div className="md:pt-44 pt-36"></div>
+				<div className="flex flex-row justify-center">
+					<div className="lg:flex flex-row justify-center">
+						<div className="h-96 md:h-auto md:w-96 flex-none bg-cover rounded-t md:rounded-t-none md:rounded-l text-center overflow-hidden hidden lg:block">
+							<img
+								src={ProfilePic}
+								alt="Pontus Abrahamsson"
+							/>
+						</div>
+						<img
+							src={mobielArrow}
+							alt="an arrow"
+							className="md:hidden w-16 h-16 object-contain"
+						/>
+						<h1 className="text-6xl font-bebas text-center md:hidden">
+							Bakgrundsfakta
+						</h1>
+						<div className="border-r border-b border-l border-gray-400 md:border-l-0 md:border-t-0 md:border-8 md:border-gray-900 bg-moss rounded-b md:rounded-b-none md:rounded-r p-4 flex flex-col w-full justify-between leading-normal">
+							<div className="md:mb-8 flex flex-col justify-center">
+								<div className="hidden md:block font-bold md:text-7xl text-3xl mb-2 font-bebas text-center">
+									<h1>Bakgrundsfakta</h1>
+								</div>
+								<AnimatePresence>
+									<motion.div className="text-black text-base lg:w-96 w-80 text-justify m-auto">
+										{english ? (
+											<motion.p
+												initial={{
+													opacity: 1,
+												}}
+												animate={{
+													opacity: [
+														0, 1,
+													],
+												}}
+												transition={{
+													duration: 1,
+												}}
+											>
+												{swedish}
+											</motion.p>
+										) : (
+											<motion.p
+												initial={{
+													opacity: 1,
+												}}
+												animate={{
+													opacity: [
+														0, 0, 1,
+													],
+												}}
+												transition={{
+													duration: 1,
+												}}
+											>
+												{englishAbout}
+											</motion.p>
+										)}
+									</motion.div>
+								</AnimatePresence>
+							</div>
+							<div className="flex justify-center">
+								<motion.button
+									whileHover={{ scale: 1.1 }}
+									whileTap={{ scale: 0.8 }}
+									style={{
+										rotate: -1,
+									}}
+									className="w-56 text-center justify-self-center text-gray-900 bg-ash font-bold font-nunito rounded-lg text-md px-5 py-2.5 mr-2 mb-2 "
+									onClick={() => {
+										setEnglish(!english);
+										setButtonLang(!buttonLang);
+									}}
+								>
+									{buttonLang
+										? englishButton
+										: swedishButton}
+								</motion.button>
+							</div>
+						</div>
 
-                        <div className='flex justify-center pt-16 pb-16'>
-                            <img
-                                src={ProfilePic}
-                                alt='Pontus Abrahamsson'
-                                className='lg:hidden object-contain lg:w-96 w-72 rounded-xl '
-                            />
-                        </div>
-                    </div>
-                </div>
+						<div className="flex justify-center pt-16 pb-16">
+							<img
+								src={ProfilePic}
+								alt="Pontus Abrahamsson"
+								className="lg:hidden object-contain lg:w-96 w-72 rounded-xl "
+							/>
+						</div>
+					</div>
+				</div>
 
-                <div className='md:h-40'></div>
-                <div className='bg-ash backdrop-blur-lg flex flex-row justify-center space-x-10 h-14 items-center w-full md:scale-95 md:-rotate-1'>
-                    <FaGithub className='w-10 h-10' />
-                    <FaInstagram className='w-10 h-10' />
-                    <FaTwitter className='w-10 h-10' />
-                    <FaTwitch className='w-10 h-10' />
-                    <img
-                        src={arrow}
-                        alt='arrow'
-                        className='w-36 h-36 pb-12 hidden md:block'
-                    />
-                </div>
-                <ScrollAnimation />
-            </div>
-        </>
-    );
+				<div className="md:h-40"></div>
+				<div className="bg-ash backdrop-blur-lg flex flex-row justify-center space-x-10 h-14 items-center w-full md:scale-95">
+					<FaGithub className="w-10 h-10" />
+					<FaInstagram className="w-10 h-10" />
+					<FaTwitter className="w-10 h-10" />
+					<FaTwitch className="w-10 h-10" />
+					<img
+						src={arrow}
+						alt="arrow"
+						className="w-36 h-36 pb-12 hidden md:block"
+					/>
+				</div>
+				<ScrollAnimation />
+			</div>
+		</>
+	);
 };
 
 export default Home;

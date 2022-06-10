@@ -18,7 +18,7 @@ const ScrollAnimation = () => {
   return (
     <>
     <svg
-                    className='progress-icon w-16 h-16 fixed top-1 left-1 z-10'
+                    className='progress-icon w-16 h-16 fixed bottom-1 left-1 z-10'
                     viewBox='0 0 60 60'
                 >
                     <motion.path
