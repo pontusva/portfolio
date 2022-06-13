@@ -4,7 +4,7 @@ import arrow from "../components/assets/arrow.png";
 import mobielArrow from "../components/assets/mobilearrow.png";
 import { FaGithub, FaInstagram, FaTwitter, FaTwitch } from "react-icons/fa";
 import ScrollAnimation from "./scroll/ScrollAnimation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Home = () => {
@@ -38,15 +38,31 @@ const Home = () => {
 	const [english, setEnglish] = useState(true);
 	const [buttonLang, setButtonLang] = useState(true);
 
-   
+	const [offsetY, setOffsetY] = useState(0);
+	const handleScroll = () => setOffsetY(window.scrollY);
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
 	return (
 		<>
-			<div name="home" className="bg-beige ">
+			<div
+				name="home"
+				className="bg-beige"	
+			>
 				<div className="md:pt-44 pt-36"></div>
 				<div className="flex flex-row justify-center">
-					<div className="lg:flex flex-row justify-center">
-						<div className="h-96 md:h-auto md:w-96 flex-none bg-cover rounded-t md:rounded-t-none md:rounded-l text-center overflow-hidden hidden lg:block">
+					<div
+					 style={{ transform: `translateY(-${offsetY * 0.3}px)` }}
+					 className="lg:flex flex-row justify-center lg:pr-56">
+						<div 
+						
+						className="h-96 md:h-auto md:w-96 flex-none bg-cover rounded-t md:rounded-t-none md:rounded-l text-center overflow-hidden hidden lg:block">
 							<img
+								
 								src={ProfilePic}
 								alt="Pontus Abrahamsson"
 							/>

@@ -5,6 +5,7 @@ import javascript from "../components/assets/javascript.png";
 import react from "../components/assets/react.png";
 
 const Skills = () => {
+
     return (
         <>
             <div className='bg-beige'>
