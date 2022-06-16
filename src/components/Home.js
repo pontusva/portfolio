@@ -47,22 +47,20 @@ const Home = () => {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
+
 	return (
 		<>
-			<div
-				name="home"
-				className="bg-beige"	
-			>
+			<div name="home" className="bg-beige">
 				<div className="md:pt-44 pt-36"></div>
 				<div className="flex flex-row justify-center">
 					<div
-					 style={{ transform: `translateY(-${offsetY * 0.3}px)` }}
-					 className="lg:flex flex-row justify-center lg:pr-56">
-						<div 
-						
-						className="h-96 md:h-auto md:w-96 flex-none bg-cover rounded-t md:rounded-t-none md:rounded-l text-center overflow-hidden hidden lg:block">
+						style={{
+							transform: `translateY(-${offsetY * 0.3}px)`,
+						}}
+						className="lg:flex flex-row justify-center lg:pr-56"
+					>
+						<div className="h-96 md:h-auto md:w-96 flex-none bg-cover rounded-t md:rounded-t-none md:rounded-l text-center overflow-hidden hidden lg:block">
 							<img
-								
 								src={ProfilePic}
 								alt="Pontus Abrahamsson"
 							/>
@@ -150,10 +148,30 @@ const Home = () => {
 
 				<div className="md:h-40"></div>
 				<div className="bg-ash backdrop-blur-lg flex flex-row justify-center space-x-10 h-14 items-center w-full md:scale-95">
-					<FaGithub className="w-10 h-10" />
-					<FaInstagram className="w-10 h-10" />
+					<a
+						target="_blank"
+						rel="noreferrer"
+						href="https://github.com/pontusva"
+					>
+						<FaGithub className="w-10 h-10 z-10 cursor-pointer" />{" "}
+					</a>
+
+					<a
+						target="_blank"
+						rel="noreferrer"
+						href="https://www.instagram.com/pontwah/"
+					>
+						<FaInstagram className="w-10 h-10" />
+					</a>
+
 					<FaTwitter className="w-10 h-10" />
-					<FaTwitch className="w-10 h-10" />
+					<a
+						target="_blank"
+						rel="noreferrer"
+						href="https://www.twitch.tv/1nexion"
+					>
+						<FaTwitch className="w-10 h-10" />
+					</a>
 					<img
 						src={arrow}
 						alt="arrow"
